@@ -1,0 +1,9 @@
+# Ignore everything by defualt
+*
+
+#Track files and directories
+!.gitignore
+!BrewFile
+!Readme.md
+!.zshrc
+
