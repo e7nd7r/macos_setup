@@ -46,3 +46,5 @@ brew "hashicorp/tap/terraform"
 cask "font-hack-nerd-font"
 cask "font-meslo-lg-nerd-font"
 cask "mactex"
+cask "iterm2"
+
