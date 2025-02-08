@@ -50,9 +50,17 @@ else
     echo "⚠️ No Brewfile found in the current directory. Skipping installation."
 fi
 
-# >>> Installl tmuxifier >>>
+# >>> Install tmuxifier >>>
 if [ ! -d "$HOME/.tmuxifier" ]; then
     echo "ℹ️  Installing tmuxifier"
     git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
 fi
+
+# >>> Install tmux plugin manager (TMP) >>>
+if [ ! -d "$HOME/.tmux/plugins/tmp" ]; then
+    echo "ℹ️  Instaling tmux plugin manager (TMP)"
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    echo "✅ TMP installed successfully."
+fi
+
 
