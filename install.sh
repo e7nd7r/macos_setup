@@ -28,10 +28,13 @@ else
     fi
 fi
 
+# >>> Install Brewfile >>>
+
 # Install mas, a cli to install app store programs.
 brew install mas
 
 # Install or update xcode.
+echo "ℹ️  Installing xcode."
 mas install 497799835
 
 # Ensure brew bundle is instaled.
@@ -47,4 +50,9 @@ else
     echo "⚠️ No Brewfile found in the current directory. Skipping installation."
 fi
 
+# >>> Installl tmuxifier >>>
+if [ ! -d "$HOME/.tmuxifier" ]; then
+    echo "ℹ️  Installing tmuxifier"
+    git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
+fi
 
