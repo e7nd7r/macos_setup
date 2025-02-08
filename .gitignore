@@ -9,4 +9,5 @@
 !install.sh
 !.tmux-layouts/
 !.tmux-layouts/**
+!.tmux.conf
 
