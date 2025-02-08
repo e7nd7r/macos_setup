@@ -1,3 +1,4 @@
+# >>> Setup oh my zsh >>>
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -138,10 +139,11 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# >>> Tmux Setup >>>
+# >>> Tmuxifier Setup >>>
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 eval "$(tmuxifier init -)"
 export EDITOR="nvim"
+export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux-layouts"
 
 # >>> Golang Setup >>>
 export PATH="$HOME/go/bin/bin:$PATH"

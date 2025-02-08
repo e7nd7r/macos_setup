@@ -7,4 +7,6 @@
 !Readme.md
 !.zshrc
 !install.sh
+!.tmux-layouts/
+!.tmux-layouts/**
 
