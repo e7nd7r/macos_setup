@@ -10,4 +10,7 @@
 !.tmux-layouts/
 !.tmux-layouts/**
 !.tmux.conf
+!.config/
+!.config/ghostty/
+!.config/ghostty/**
 
