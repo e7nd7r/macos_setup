@@ -44,4 +44,5 @@
 
 theme = catppuccin-macchiato
 font-family = "Hack Nerd Font Mono"
+background-opacity = .85
 
