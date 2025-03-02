@@ -48,10 +48,10 @@ brew "ripgrep"
 brew "spotify_player"
 brew "tmux"
 brew "hashicorp/tap/terraform"
-brew fd
-brew bat
-brew eza
-brew lazygit
+brew "fd"
+brew "bat"
+brew "eza"
+brew "jesseduffield/lazygit/lazygit"
 
 cask "docker"
 cask "font-hack-nerd-font"

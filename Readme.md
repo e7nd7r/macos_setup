@@ -16,3 +16,23 @@ https://github.com/tmux
 
 ### tmuxifier documentation.
 https://github.com/jimeh/tmuxifier
+
+## Brew useful commands
+
+### Generate Brewfile
+
+```sh
+brew bundle dump --file=~/Brewfile
+```
+
+### Install Brewfile
+
+```sh
+brew bundle --file=~/Brewfile
+```
+### Cleanup Brewfile
+
+```sh
+brew bundle cleanup --file=~/Brewfile
+```
+
