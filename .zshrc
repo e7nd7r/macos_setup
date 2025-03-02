@@ -181,12 +181,6 @@ if [ ! -f "$(bat --config-dir)/themes/Catppuccin Macchiato.tmTheme" ]; then
     wget -q -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Macchiato.tmTheme > /dev/null
 
     bat cache --build > /dev/null
-
-    touch "$(bat --config-file)"
-
-    echo "here"
-
-    echo "--theme=\"Catppuccin Macchiato\"" >> $(bat --config-file)
 fi
 
 # >>> Exa Setup >>>
