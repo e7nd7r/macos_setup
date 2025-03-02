@@ -3,7 +3,7 @@
 
 #Track files and directories
 !.gitignore
-!BrewFile
+!Brewfile
 !Readme.md
 !.zshrc
 !install.sh
