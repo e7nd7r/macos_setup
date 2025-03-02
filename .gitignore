@@ -15,4 +15,6 @@
 !.config/ghostty/**
 !.config/bat/
 !.config/bat/**
+!.config/aerospace
+!.config/aerospace/**
 
