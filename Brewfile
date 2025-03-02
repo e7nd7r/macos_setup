@@ -1,6 +1,8 @@
 tap "hashicorp/tap"
 tap "homebrew/bundle"
 tap "homebrew/services"
+tap "jesseduffield/lazygit"
+
 brew "libtiff"
 brew "webp"
 brew "jpeg-xl"
@@ -49,6 +51,7 @@ brew "hashicorp/tap/terraform"
 brew fd
 brew bat
 brew eza
+brew lazygit
 
 cask "docker"
 cask "font-hack-nerd-font"

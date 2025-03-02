@@ -192,3 +192,42 @@ export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/curl/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/curl/include"
 
+# >>> Docker auto completion setup >>>
+fzf_kubectl_namespaces() {
+    namespace=$(kubectl get namespaces --no-headers -o custom-columns=":metadata.name" | fzf)
+
+    if [[ -n "$namespace" ]]; then
+        LBUFFER+="-n $namespace"
+    fi
+}
+
+fzf_kubectl_contexts() {
+    context = $(kubectl config get-contexts -o name | fzf)
+
+    if [[ -n "$context" ]]; then
+        kubectl config use-context $context
+        LBUFFER+="$context"
+    fi
+}
+
+fzf_kubectl_pods() {
+    namespace=$(kubectl get namespaces --no-headers -o custom-columns=":metadata.name" | fzf)
+
+    if [[ -z "$namespace" ]]; then
+        return
+    fi
+
+    local pod
+
+    pod=$(kubectl get pods -n "$namespace" --no-headers -o custom-columns=":metadata.name" | fzf)
+
+    if [[ -n "$pod" ]]; then
+        LBUFFER+="-n $namespace $pod"
+    fi
+}
+
+zle -N fzf_kubectl_pods
+
+bindkey '^p' fzf_kubectl_pods
+
+
