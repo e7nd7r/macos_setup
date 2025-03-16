@@ -230,4 +230,7 @@ zle -N fzf_kubectl_pods
 
 bindkey '^p' fzf_kubectl_pods
 
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
+# >>> Enable vim mode >>>
+bindkey -v
