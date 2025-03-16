@@ -158,21 +158,20 @@ export PATH="$PATH:/Users/esteban/flutter/bin"
 # >>> fzf Setup >>>
 source <(fzf --zsh)
 
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --strip-cwd-prefix --no-ignore'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type d --hidden --follow --exclude .git --no-ignore"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always --style=header,grid --line-range :500 {}'"
-export FZD_CTRL_C_OPTS="--preview 'eza --tree --color=always {} | head -200"
+export FZF_CTRL_T_COMMAND='fd --type f --hidden --strip-cwd-prefix --no-ignore'
 
 _fzf_compgen_path() {
   fd --hidden --follow --no-ignore --exclude ".git" . "$1"
 }
 
-# >>> Bat Setup >>>
 _fzf_compgen_dir() {
   fd --type d --hidden --no-ignore --follow --exclude ".git" . "$1"
 }
 
+# >>> Bat Setup >>>
 if [ ! -d "$(bat --config-dir)/themes" ]; then
   mkdir -p "$(bat --config-dir)/themes"
 fi
@@ -183,9 +182,9 @@ if [ ! -f "$(bat --config-dir)/themes/Catppuccin Macchiato.tmTheme" ]; then
     bat cache --build > /dev/null
 fi
 
-# >>> Exa Setup >>>
-
+# >>> Eza Setup >>>
 alias ls="eza --color=always --long --git"
+alias lst="eza --color=always --tree --level=2 --long --git"
 
 # >>> Curl Setup >>>
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
