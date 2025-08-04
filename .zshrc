@@ -155,6 +155,9 @@ export PATH=$HOME/bin:/usr/local/bin:$GOPATH:$PATH
 # >>> Flutter Setup >>>
 export PATH="$PATH:/Users/esteban/flutter/bin"
 
+# >>> Enable vim mode >>>
+bindkey -v
+
 # >>> fzf Setup >>>
 source <(fzf --zsh)
 
@@ -162,13 +165,14 @@ export FZF_ALT_C_COMMAND="fd --type d --hidden --follow --exclude .git --no-igno
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always --style=header,grid --line-range :500 {}'"
 export FZF_CTRL_T_COMMAND='fd --type f --hidden --strip-cwd-prefix --no-ignore'
+export FZF_COMPLETION_TRIGGER='**'
 
 _fzf_compgen_path() {
-  fd --hidden --follow --no-ignore --exclude ".git" . "$1"
+  fd --hidden --follow --exclude ".git" . "$1"
 }
 
 _fzf_compgen_dir() {
-  fd --type d --hidden --no-ignore --follow --exclude ".git" . "$1"
+  fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
 # >>> Bat Setup >>>
@@ -192,24 +196,24 @@ export LDFLAGS="-L/opt/homebrew/opt/curl/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/curl/include"
 
 # >>> Docker auto completion setup >>>
-fzf_kubectl_namespaces() {
-    namespace=$(kubectl get namespaces --no-headers -o custom-columns=":metadata.name" | fzf)
+# fzf_kubectl_namespaces() {
+#     namespace=$(kubectl get namespaces --no-headers -o custom-columns=":metadata.name" | fzf)
 
-    if [[ -n "$namespace" ]]; then
-        LBUFFER+="-n $namespace"
-    fi
-}
+#     if [[ -n "$namespace" ]]; then
+#         LBUFFER+="-n $namespace"
+#     fi
+# }
 
-fzf_kubectl_contexts() {
-    context = $(kubectl config get-contexts -o name | fzf)
+# fzf_kubectl_contexts() {
+#     context = $(kubectl config get-contexts -o name | fzf)
 
-    if [[ -n "$context" ]]; then
-        kubectl config use-context $context
-        LBUFFER+="$context"
-    fi
-}
+#     if [[ -n "$context" ]]; then
+#         kubectl config use-context $context
+#         LBUFFER+="$context"
+#     fi
+# }
 
-fzf_kubectl_pods() {
+kubectl_pods() {
     namespace=$(kubectl get namespaces --no-headers -o custom-columns=":metadata.name" | fzf)
 
     if [[ -z "$namespace" ]]; then
@@ -225,11 +229,9 @@ fzf_kubectl_pods() {
     fi
 }
 
-zle -N fzf_kubectl_pods
+zle -N kubectl_pods
 
-bindkey '^p' fzf_kubectl_pods
+bindkey '^p' kubectl_pods
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
-# >>> Enable vim mode >>>
-bindkey -v
